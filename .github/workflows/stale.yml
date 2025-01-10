@@ -1,23 +1,27 @@
-name: 'Close stale issues and PRs'
+name: Close stale issues and PRs
+
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
-  workflow_dispatch:
 
 permissions:
-  contents: write # only for delete-branch option
+  contents: write
   issues: write
   pull-requests: write
-  
+
 jobs:
   stale:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/stale@v9
+      - name: Close stale issues and PRs
+        uses: actions/stale@v9
         with:
           operations-per-run: 100
-          stale-issue-message: 'This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. If this is still happening, please reply to indicate so.'
-          stale-pr-message: 'This PR has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. If you are still working on this, please reply to indicate so.'
+          stale-issue-message: |
+            This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. If this is still happening, please reply to indicate so.
+          stale-pr-message: |
+            This PR has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. If you are still working on this, please reply to indicate so.
           days-before-issue-stale: 30
           days-before-pr-stale: 45
           days-before-issue-close: 5
