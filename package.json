@@ -244,7 +244,7 @@
     "lucide-react": "^0.469.0",
     "posthog-js": "^1.203.2",
     "react-compare-slider": "^3.1.0",
-    "react-markdown": "^9.0.1",
+    "react-markdown": "^9.0.3",
     "react-resizable-panels": "^2.1.7",
     "react-select": "^5.9.0",
     "react-tooltip": "^5.28.0",
